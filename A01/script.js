@@ -1,13 +1,12 @@
-let ricxvebi = prompt('ჩაწერე ორი ციფრი').split(' '),
-    a = +ricxvebi[0],
-    b = +ricxvebi[1],
+let nums = prompt('შეიყვანე ერთ რიცხვი').split(' '),
+    a = +nums[0],
     sum = 0;
 
-if((a <= 0 || b <= 0 ) || (a >= 1000 || b >= 1000) || a >= b ){
-    alert('შეცლომითაა');
+if((a <= 0) || (a >= 100)){
+    alert('არასწორი შუალედი');
 }else{
-    for(a; a<=b; a++){
-        sum += a;
+    for(var i = 0; i<a; i=i+2){
+        sum += i;
     }
 
     alert(sum);

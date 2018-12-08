@@ -1,40 +1,21 @@
-let btn = document.querySelector('#highlight-product'),
-    modal = document.querySelector('#modal');
+document.getElementById("highlight-product").onclick = function(){
+	var x = prompt('ბრენდი')
+	var y = prompt('შრიფტის ზომა')
+	var status = 0
+	for (var i = 0; i < document.getElementsByClassName('phone-list-item').length; i++) {
+		if (document.getElementsByClassName('phone-list-item')[i].getAttribute('data-brand') == x) {
+			status = 1
+            document.getElementsByClassName('phone-list-item')[i].children[0].style.fontSize = y + 'px'
+			document.getElementsByClassName('phone-list-item')[i].children[0].innerHTML = document.getElementsByClassName('phone-list-item')[i].children[0].innerHTML.bold()
+
+            document.getElementsByClassName('phone-list-item')[i].children[1].style.fontSize = y + 'px'
+            document.getElementsByClassName('phone-list-item')[i].children[1].innerHTML = document.getElementsByClassName('phone-list-item')[i].children[1].innerHTML.bold()
+
+		}
+	}
 
 
-    
-btn.addEventListener('click' , getColorById);
-
-
-function getColorById(){
-
-
-    let color = modal.firstElementChild.value,
-        ID = modal.lastElementChild.value,
-        productById = document.querySelector(`.phone-list-item[data-product-id='${ID}']`);
-  
-
-
-        modal.classList.toggle('hide');
-
-
-    if((color && color[0] === '#' && color.length === 7) && productById){
-        modal.classList.toggle('hide');
-        productById.style.backgroundColor = color; 
-    }else{
-        if(color && ID){
-            color = '';
-            ID = '';
-            alert('ვერ მოიძებნა');
-         
-            
-
-
-        }  
-    }
-
-
-
-
+	if (status == 0) {
+		alert('ჩანაწერი ვერ მოიძებნა')
+	}
 }
-
